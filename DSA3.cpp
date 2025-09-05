@@ -90,3 +90,32 @@ int main() {
     return 0;
 }
 
+
+Q3.
+
+    #include <iostream>
+#include <cstring>
+using namespace std;
+
+int main() {
+    char exp[300];
+    cout << "Enter expression (no spaces): ";
+    cin >> exp;
+    char st[300];
+    int top = -1;
+    bool ok = true;
+    for (int i = 0; i < (int)strlen(exp); i++) {
+        char c = exp[i];
+        if (c == '(' || c == '[' || c == '{') st[++top] = c;
+        else if (c == ')' || c == ']' || c == '}') {
+            if (top == -1) { ok = false; break; }
+            char t = st[top--];
+            if ((c == ')' && t != '(') || (c == ']' && t != '[') || (c == '}' && t != '{')) {
+                ok = false; break;
+            }
+        }
+    }
+    if (ok && top == -1) cout << "Balanced\n"; else cout << "Not Balanced\n";
+    return 0;
+}
+
