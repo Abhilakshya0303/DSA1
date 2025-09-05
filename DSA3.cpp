@@ -1,5 +1,5 @@
 
-/*
+
 
 Q1.
 
@@ -193,3 +193,4 @@ int main() {
     cout << "Result: " << st[top] << "\n";
     return 0;
 }
+
